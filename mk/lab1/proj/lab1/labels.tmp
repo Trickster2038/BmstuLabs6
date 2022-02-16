@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.42</VERSION>
+ <DEVICE>ATmega8515</DEVICE>
+ <WORKING_DIR>C:\Users\Professional\Desktop\mk_lab1\proj\lab1</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Professional\Desktop\mk_lab1\proj\lab1\lab1.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes\m8515def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Professional\Desktop\mk_lab1\proj\lab1\lab1.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>C:\Users\Professional\Desktop\mk_lab1\proj\lab1\lab1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>C:\Users\Professional\Desktop\mk_lab1\proj\lab1\lab1.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <init><FILE>C:\Users\Professional\Desktop\mk_lab1\proj\lab1\lab1.asm</FILE><LINE>10</LINE></init>
+  <WAITSTART><FILE>C:\Users\Professional\Desktop\mk_lab1\proj\lab1\lab1.asm</FILE><LINE>21</LINE></WAITSTART>
+  <LOOP><FILE>C:\Users\Professional\Desktop\mk_lab1\proj\lab1\lab1.asm</FILE><LINE>25</LINE></LOOP>
+  <d1><FILE>C:\Users\Professional\Desktop\mk_lab1\proj\lab1\lab1.asm</FILE><LINE>27</LINE></d1>
+  <d2><FILE>C:\Users\Professional\Desktop\mk_lab1\proj\lab1\lab1.asm</FILE><LINE>28</LINE></d2>
+  <d3><FILE>C:\Users\Professional\Desktop\mk_lab1\proj\lab1\lab1.asm</FILE><LINE>29</LINE></d3>
+  <MM><FILE>C:\Users\Professional\Desktop\mk_lab1\proj\lab1\lab1.asm</FILE><LINE>40</LINE></MM>
+  <LEFT><FILE>C:\Users\Professional\Desktop\mk_lab1\proj\lab1\lab1.asm</FILE><LINE>46</LINE></LEFT>
+ </LABELS>
+</ASSEMBLER_INFO>
