@@ -38,12 +38,12 @@ rjmp MM
 rjmp WAITSTART 
 
 MM: brts LEFT 
-sbrs reg_led,1 
+sbrs reg_led,1
 set 
 ror reg_led 
 rjmp LOOP 
 
-LEFT: sbrs reg_led,6 
+LEFT: sbrs reg_led,6
 clt 
 rol reg_led 
 rjmp LOOP
