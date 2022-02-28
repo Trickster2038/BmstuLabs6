@@ -23,9 +23,9 @@ sbic PIND,START
 rjmp WAITSTART 
 
 LOOP: out PORTA,reg_led 
-ldi r17, 210
+ldi r17, 235
 	d1: ldi r18,255
-		d2: ldi r19, 4
+		d2: ldi r19, 10
 			d3: dec r19
 			brne d3
 		dec r18
