@@ -1,0 +1,33 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.42</VERSION>
+ <DEVICE>ATmega8515</DEVICE>
+ <WORKING_DIR>E:\mk\LAB2\part1\lab21</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>E:\mk\LAB2\part1\lab21\lab21.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes\m8515def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>E:\mk\LAB2\part1\lab21\lab21.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>E:\mk\LAB2\part1\lab21\lab21.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>E:\mk\LAB2\part1\lab21\lab21.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <INIT><FILE>E:\mk\LAB2\part1\lab21\lab21.asm</FILE><LINE>12</LINE></INIT>
+  <STOP_PRESSED><FILE>E:\mk\LAB2\part1\lab21\lab21.asm</FILE><LINE>53</LINE></STOP_PRESSED>
+  <WAITSTART><FILE>E:\mk\LAB2\part1\lab21\lab21.asm</FILE><LINE>32</LINE></WAITSTART>
+  <LOOP><FILE>E:\mk\LAB2\part1\lab21\lab21.asm</FILE><LINE>35</LINE></LOOP>
+  <DELAY><FILE>E:\mk\LAB2\part1\lab21\lab21.asm</FILE><LINE>60</LINE></DELAY>
+  <LEFT><FILE>E:\mk\LAB2\part1\lab21\lab21.asm</FILE><LINE>46</LINE></LEFT>
+  <WAITSTART_2><FILE>E:\mk\LAB2\part1\lab21\lab21.asm</FILE><LINE>54</LINE></WAITSTART_2>
+  <d1><FILE>E:\mk\LAB2\part1\lab21\lab21.asm</FILE><LINE>61</LINE></d1>
+  <d2><FILE>E:\mk\LAB2\part1\lab21\lab21.asm</FILE><LINE>62</LINE></d2>
+  <d3><FILE>E:\mk\LAB2\part1\lab21\lab21.asm</FILE><LINE>63</LINE></d3>
+ </LABELS>
+</ASSEMBLER_INFO>
