@@ -1,0 +1,36 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.42</VERSION>
+ <DEVICE>ATmega8515</DEVICE>
+ <WORKING_DIR>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes\m8515def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <INIT><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>15</LINE></INIT>
+  <job_set><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>59</LINE></job_set>
+  <job_clr><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>64</LINE></job_clr>
+  <loop><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>36</LINE></loop>
+  <delay><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>69</LINE></delay>
+  <MM><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>42</LINE></MM>
+  <LEFT><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>50</LINE></LEFT>
+  <end><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>57</LINE></end>
+  <wait_0><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>60</LINE></wait_0>
+  <wait_1><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>65</LINE></wait_1>
+  <d1><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>70</LINE></d1>
+  <d2><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>71</LINE></d2>
+  <d3><FILE>C:\Users\Professional\Desktop\BmstuLabs6\mk\lab2_new\part3\lab2n.asm</FILE><LINE>72</LINE></d3>
+ </LABELS>
+</ASSEMBLER_INFO>
