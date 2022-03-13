@@ -62,13 +62,14 @@ wait_1: sbis pind,sw2
 rjmp wait_1
 reti
 
-delay: ldi r17,11
-d1: ldi r18,95
-d2: ldi r19,255
-d3: dec r19
-brne d3
-dec r18
-brne d2
-dec r17
-brne d1
+delay:
+ldi r17, 215
+	d1: ldi r18,255
+		d2: ldi r19, 4
+			d3: dec r19
+			brne d3
+		dec r18
+		brne d2
+	dec r17
+	brne d1
 ret
