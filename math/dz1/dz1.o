@@ -31,37 +31,15 @@ function G = Gauss(A,F)
                   end
             end
       disp('Решение СЛАУ методом Гаусса:')
-      X = AF(:, 5);
+      X = AF(:, 5:1:end);
       disp(X);
       G = X;
 end
 
-function [E] = Gauss2(A)
+function [G] = Gauss2(A)
     N = size(A, 1);
     E = eye(N);
-    for i=1 : N
-        temp1 = A(i, i);
-        for j=1 : N
-            A(i, j) = A(i, j) / temp1;
-            E(i, j) = E(i, j) / temp1;
-        end
-        for j=(i+1) : N
-            temp2 = A(j, i);
-                for k=1 : N
-                    A(j, k) = A(j, k) - A(i, k) * temp2;
-                    E(j, k) = E(j, k) - E(i, k) * temp2;
-                end
-        end
-    end
-    for i=(N) : -1 : 2
-        for j=(i-1) : -1 : 1
-            temp3 = A(j, i);
-            for k=1 : N
-                A(j, k) = A(j, k) - A(i, k) * temp3;
-                E(j, k) = E(j, k) - E(i, k) * temp3;
-            end
-        end
-    end
+    G = Gauss(A, E);
 end
 
 disp('Решение СЛАУ 1 реализованным методом методом:');
@@ -112,16 +90,15 @@ delta_norm2_inf = norm(D2-X2,inf)/norm(D2,inf) %Относительная по�
 format bank
 
 disp(' ')
-A1_1 = Gauss2(A1);
 disp('A1^-1: ');
-disp(A1_1);
+A1_1 = Gauss2(A1);
+
 disp('A1^-1 * A1:');
 disp(A1*A1_1);
  
 disp(' ')
-A2_1 = Gauss2(A2);
 disp('A2^-1: ');
-disp(A2_1);
+A2_1 = Gauss2(A2);
 disp('A2^-1 * A2:');
 disp(A2*A2_1);
 
