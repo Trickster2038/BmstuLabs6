@@ -40,8 +40,8 @@ rjmp wait_1
 
 delay1:        			 	; подпрограмма 1 с
 	ldi r17, 55
-	d1: ldi r18,95
-	d2: ldi r19, 255
+	d1: ldi r18,1;95
+	d2: ldi r19, 1;255
 	d3: dec r19
 	brne d3
 	dec r18
