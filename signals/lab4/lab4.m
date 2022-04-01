@@ -1,3 +1,5 @@
+% плагин pulse waveform analyzer
+
 % Имитационное моделирование и графическая визуализация
 % функции неопределенности простых и сложных сигналов
 clear all; % Очистка памяти
@@ -28,14 +30,14 @@ f = fmin:fstep:fmax; % Значения по оси частоты
 eps = 0.000001;
 i = 0;
 for ti = tmin:tstep:tmax
-i = i + 1;
-j = 0;
-for fj = fmin:fstep:fmax
-j = j + 1;
-val1 = 1 - abs(ti) / dT;
-val2 = pi * dT * (1.0 - abs(ti) / dT) * fj;
-x(j,i) = abs( val1 * sin(val2+eps)/(val2+eps));
-end
+	i = i + 1;
+	j = 0;
+	for fj = fmin:fstep:fmax
+		j = j + 1;
+		val1 = 1 - abs(ti) / dT;
+		val2 = pi * dT * (1.0 - abs(ti) / dT) * fj;
+		x(j,i) = abs( val1 * sin(val2+eps)/(val2+eps));
+	end
 end
 % Формирование трехмерного графика
 figure; mesh(t,f,x);
