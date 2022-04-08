@@ -61,8 +61,11 @@ T1_OVF: ser temp
 out PORTB,temp ;выключение светодиодов
 clr temp ;останов
 out TCCR1B,temp ; таймера Т1
-ldi temp,0x80
+ldi temp,0x80; АЛЬТЕРНАТИВНОЕ ВРЕМЯ - 0xC0
 out TCNT1H,temp ; перезагрузка TCNT1
 ldi temp,0x00
 out TCNT1L,temp
 reti
+
+
+
