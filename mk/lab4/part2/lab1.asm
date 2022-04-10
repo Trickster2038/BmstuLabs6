@@ -67,5 +67,6 @@ ldi temp,0x00
 out TCNT1L,temp
 reti
 
+; юкэрепмюрхбмне бпелъ - 0xC0
 
 

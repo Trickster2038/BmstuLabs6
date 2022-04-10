@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.42  C:\Users\Professional\Desktop\BmstuLabs6\mk\lab4\part2\lab1.asm Fri Apr 08 11:40:01 2022
+AVRASM ver. 2.1.42  C:\Users\Professional\Desktop\BmstuLabs6\mk\lab4\part4\lab1.asm Sun Apr 10 13:14:56 2022
 
 
 EQU  SIGNATURE_000 0000001e
@@ -474,8 +474,6 @@ EQU  INT_VECTORS_SIZE 00000011
 DEF  temp         r16
 EQU  SW0          00000000
 EQU  SW1          00000001
-CSEG INIT         00000007
-CSEG T1_OVF       00000028
-CSEG test_sw0     0000001b
-CSEG test_sw1     0000001f
-CSEG LED_ON       00000024
+CSEG INIT         00000001
+CSEG F1           0000000f
+CSEG F2           00000017
