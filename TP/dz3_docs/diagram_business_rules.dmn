@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_17gi3tw" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.12.0">
+  <decision id="Decision_0h53m9n" name="Благонадежность клиента">
+    <informationRequirement id="InformationRequirement_1liajl4">
+      <requiredInput href="#InputData_0t0uevy" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0p01m8g">
+      <requiredInput href="#InputData_1y98io8" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_11spvdk">
+      <requiredInput href="#InputData_1boqx7h" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1php5oc">
+      <input id="Input_1" label="Наличие санкций на клиенте" biodi:width="236">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1gw2kx3" label="Предыдущее сотрудничество" biodi:width="255">
+        <inputExpression id="LiteralExpression_1pb38np" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_18es8s0" label="Судебное разбирательство" biodi:width="231">
+        <inputExpression id="LiteralExpression_16k613n" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Благонадежность клиента" typeRef="string" biodi:width="192" />
+      <rule id="DecisionRule_1oy06qc">
+        <description>Риска нет</description>
+        <inputEntry id="UnaryTests_0t8f9nd">
+          <text>нет</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bz5632">
+          <text>прошло успешно</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uhn86f">
+          <text>нет</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xku5ns">
+          <text>высокая</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0r6tk04">
+        <description>Риска нет</description>
+        <inputEntry id="UnaryTests_0yuncli">
+          <text>нет</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j5e4c2">
+          <text>имело риски</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d8shgh">
+          <text>нет</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l00hkm">
+          <text>высокая</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03e6p7k">
+        <description>Риск средний</description>
+        <inputEntry id="UnaryTests_03zlpcs">
+          <text>да</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12nu0wq">
+          <text>имело риски</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lrhuyz">
+          <text>нет </text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1krkmcj">
+          <text>средняя</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18t9i29">
+        <description>Риска нет</description>
+        <inputEntry id="UnaryTests_1500297">
+          <text>да</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h6slt6">
+          <text>прошло успешно</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04er2tz">
+          <text>нет</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f4uvtz">
+          <text>высоккая</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nez5v5">
+        <description>Риск средний</description>
+        <inputEntry id="UnaryTests_0dj8b9q">
+          <text>нет</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h9y01p">
+          <text>прошло успешно</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nkcq37">
+          <text>да</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_039oxav">
+          <text>средняя</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1l6s9bi">
+        <description>Риск средний</description>
+        <inputEntry id="UnaryTests_1yc1l79">
+          <text>нет</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gds918">
+          <text>имело риски</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19i7lgv">
+          <text>да</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xbyfmk">
+          <text>средняя</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08s3u64">
+        <description>Риск высокий</description>
+        <inputEntry id="UnaryTests_0j6ubwn">
+          <text>да</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tbmtkz">
+          <text>прошло успешно</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03kmylh">
+          <text>да</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10nyrgq">
+          <text>низкая</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0m5ntfa">
+        <description>Риск высокий</description>
+        <inputEntry id="UnaryTests_0crxwdo">
+          <text>да</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k2367q">
+          <text>имело риски</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02gwttm">
+          <text>да</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14vrcak">
+          <text>низкая</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0w6c3ih" name="Согласование">
+    <informationRequirement id="InformationRequirement_1d34o0p">
+      <requiredDecision href="#Decision_0h53m9n" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1i4wn5a">
+      <input id="InputClause_1t2x625" label="Благонадежность клиента" biodi:width="262">
+        <inputExpression id="LiteralExpression_0wnx7kz" typeRef="string" />
+      </input>
+      <output id="OutputClause_1vzeij3" typeRef="string" biodi:width="233" />
+      <rule id="DecisionRule_1hhg9h2">
+        <description>Риск для сделки минимален</description>
+        <inputEntry id="UnaryTests_1me3bpy">
+          <text>Высокая</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dtkltb">
+          <text>Согласование не требуется</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mqlw8j">
+        <description>Средний риск сделки</description>
+        <inputEntry id="UnaryTests_1vyjlcx">
+          <text>Средняя</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18ifqtp">
+          <text>Согласование со всеми руководителями департаментов</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05h079w">
+        <description>Высокий риск для сделки</description>
+        <inputEntry id="UnaryTests_04xbr33">
+          <text>Низкая</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ut93zt">
+          <text>Согласование со всеми руководителями департаментов и генеральным директором</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0t0uevy" name="Наличие санкций" />
+  <inputData id="InputData_1y98io8" name="Предыдущее сотрудничество" />
+  <inputData id="InputData_1boqx7h" name="Судебное разбирательство" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0h53m9n">
+        <dc:Bounds height="80" width="180" x="310" y="220" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0i5nei0" dmnElementRef="Decision_0w6c3ih">
+        <dc:Bounds height="80" width="180" x="310" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0kxe9wp" dmnElementRef="InformationRequirement_1d34o0p">
+        <di:waypoint x="400" y="220" />
+        <di:waypoint x="400" y="180" />
+        <di:waypoint x="400" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1o4orio" dmnElementRef="InputData_0t0uevy">
+        <dc:Bounds height="45" width="125" x="157" y="357" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0hcrwq5" dmnElementRef="InputData_1y98io8">
+        <dc:Bounds height="45" width="125" x="337" y="357" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0dmxinw" dmnElementRef="InputData_1boqx7h">
+        <dc:Bounds height="45" width="125" x="527" y="357" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1xxzo1w" dmnElementRef="InformationRequirement_1liajl4">
+        <di:waypoint x="220" y="357" />
+        <di:waypoint x="355" y="320" />
+        <di:waypoint x="355" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1evjj9u" dmnElementRef="InformationRequirement_0p01m8g">
+        <di:waypoint x="400" y="357" />
+        <di:waypoint x="400" y="320" />
+        <di:waypoint x="400" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1fw8lvr" dmnElementRef="InformationRequirement_11spvdk">
+        <di:waypoint x="590" y="357" />
+        <di:waypoint x="445" y="320" />
+        <di:waypoint x="445" y="300" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
