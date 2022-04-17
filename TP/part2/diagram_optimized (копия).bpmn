@@ -109,8 +109,8 @@
     <bpmn:sequenceFlow id="Flow_0y82a83" sourceRef="Activity_1szigfv" targetRef="Gateway_1xkd1hz" />
     <bpmn:sequenceFlow id="Flow_1x1ghun" name="нет" sourceRef="Gateway_1xkd1hz" targetRef="Event_0udgw5b" />
     <bpmn:sequenceFlow id="Flow_0udyand" name="да" sourceRef="Gateway_1xkd1hz" targetRef="Gateway_17qg2a8" />
-    <bpmn:sequenceFlow id="Flow_0a1xeg0" name="Средний" sourceRef="Gateway_17qg2a8" targetRef="Gateway_124kwuz" />
-    <bpmn:sequenceFlow id="Flow_1dg0hyg" name="Высокий" sourceRef="Gateway_17qg2a8" targetRef="Activity_0ysf9ju" />
+    <bpmn:sequenceFlow id="Flow_0a1xeg0" name="средний" sourceRef="Gateway_17qg2a8" targetRef="Gateway_124kwuz" />
+    <bpmn:sequenceFlow id="Flow_1dg0hyg" name="высокий" sourceRef="Gateway_17qg2a8" targetRef="Activity_0ysf9ju" />
     <bpmn:sequenceFlow id="Flow_11a39d7" name="да" sourceRef="Gateway_15jwb49" targetRef="Gateway_124kwuz" />
     <bpmn:sequenceFlow id="Flow_1hqjb2x" sourceRef="Activity_0ysf9ju" targetRef="Gateway_15jwb49" />
     <bpmn:sequenceFlow id="Flow_0up0s0y" name="нет" sourceRef="Gateway_15jwb49" targetRef="Event_07aps06" />
@@ -131,6 +131,10 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_05iq9vq" sourceRef="Activity_0vhgjy6" targetRef="Gateway_1djrxrb" />
     <bpmn:sequenceFlow id="Flow_1jkvikk" name="нет" sourceRef="Gateway_1djrxrb" targetRef="Event_0doc62b" />
+    <bpmn:serviceTask id="Activity_1hr56g7" name="Назначить ответственного юриста">
+      <bpmn:incoming>Flow_1cwr27a</bpmn:incoming>
+      <bpmn:outgoing>Flow_0tkb9g6</bpmn:outgoing>
+    </bpmn:serviceTask>
     <bpmn:parallelGateway id="Gateway_05a94ae">
       <bpmn:incoming>Flow_03dxjoi</bpmn:incoming>
       <bpmn:outgoing>Flow_1cwr27a</bpmn:outgoing>
@@ -173,8 +177,12 @@
     <bpmn:endEvent id="Event_0d8w158" name="Отклонить предложение">
       <bpmn:incoming>Flow_1tnkmtp</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:exclusiveGateway id="Gateway_16vaoab" name="Тип сделки?">
-      <bpmn:incoming>Flow_1yae7bp</bpmn:incoming>
+    <bpmn:task id="Activity_1pj1hrl" name="Подготовить финальный пакет документов">
+      <bpmn:incoming>Flow_014fr07</bpmn:incoming>
+      <bpmn:outgoing>Flow_0kjshcb</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_16vaoab">
+      <bpmn:incoming>Flow_0kjshcb</bpmn:incoming>
       <bpmn:outgoing>Flow_08jryss</bpmn:outgoing>
       <bpmn:outgoing>Flow_0msrg76</bpmn:outgoing>
     </bpmn:exclusiveGateway>
@@ -187,9 +195,9 @@
     <bpmn:exclusiveGateway id="Gateway_18f2gx6">
       <bpmn:incoming>Flow_0qt8l8i</bpmn:incoming>
       <bpmn:incoming>Flow_1n3xd6t</bpmn:incoming>
-      <bpmn:outgoing>Flow_1yae7bp</bpmn:outgoing>
+      <bpmn:outgoing>Flow_014fr07</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:exclusiveGateway id="Gateway_1mnngb3" name="Риск?">
+    <bpmn:exclusiveGateway id="Gateway_1mnngb3" name="Риск высокий?">
       <bpmn:incoming>Flow_02hdp1w</bpmn:incoming>
       <bpmn:outgoing>Flow_0qlr30z</bpmn:outgoing>
       <bpmn:outgoing>Flow_1qp08yv</bpmn:outgoing>
@@ -204,16 +212,22 @@
     <bpmn:sequenceFlow id="Flow_0dswjuz" sourceRef="Activity_1g882z9" targetRef="Gateway_0chomx9" />
     <bpmn:sequenceFlow id="Flow_02hdp1w" name="да" sourceRef="Gateway_0chomx9" targetRef="Gateway_1mnngb3" />
     <bpmn:sequenceFlow id="Flow_1aolm4m" name="нет" sourceRef="Gateway_0chomx9" targetRef="Event_0scdvzw" />
-    <bpmn:sequenceFlow id="Flow_0qlr30z" name="Высокий" sourceRef="Gateway_1mnngb3" targetRef="Activity_1gpknjn" />
+    <bpmn:sequenceFlow id="Flow_0qlr30z" name="да" sourceRef="Gateway_1mnngb3" targetRef="Activity_1gpknjn" />
     <bpmn:sequenceFlow id="Flow_1rp8h7k" sourceRef="Activity_1gpknjn" targetRef="Gateway_0tivzuz" />
     <bpmn:sequenceFlow id="Flow_1tnkmtp" name="нет" sourceRef="Gateway_0tivzuz" targetRef="Event_0d8w158" />
     <bpmn:sequenceFlow id="Flow_0fin9e4" name="да" sourceRef="Gateway_0tivzuz" targetRef="Gateway_1vntt2v" />
+    <bpmn:sequenceFlow id="Flow_014fr07" sourceRef="Gateway_18f2gx6" targetRef="Activity_1pj1hrl" />
+    <bpmn:sequenceFlow id="Flow_0kjshcb" sourceRef="Activity_1pj1hrl" targetRef="Gateway_16vaoab" />
     <bpmn:sequenceFlow id="Flow_08jryss" name="Тендер" sourceRef="Gateway_16vaoab" targetRef="Activity_0q0k3lp" />
     <bpmn:sequenceFlow id="Flow_0msrg76" name="Прямой запрос" sourceRef="Gateway_16vaoab" targetRef="Event_1bsy7fn" />
     <bpmn:sequenceFlow id="Flow_0vemvik" sourceRef="Activity_0q0k3lp" targetRef="Event_0eawnkp" />
     <bpmn:sequenceFlow id="Flow_1n3xd6t" sourceRef="Gateway_1vntt2v" targetRef="Gateway_18f2gx6" />
-    <bpmn:sequenceFlow id="Flow_1qp08yv" name="Средний" sourceRef="Gateway_1mnngb3" targetRef="Gateway_1vntt2v" />
+    <bpmn:sequenceFlow id="Flow_1qp08yv" name="нет" sourceRef="Gateway_1mnngb3" targetRef="Gateway_1vntt2v" />
     <bpmn:sequenceFlow id="Flow_0xdd5xz" name="да" sourceRef="Gateway_1djrxrb" targetRef="Gateway_1qo35ix" />
+    <bpmn:serviceTask id="Activity_057ymx4" name="Дозаполнить справку о клиенте">
+      <bpmn:incoming>Flow_0wkn1t4</bpmn:incoming>
+      <bpmn:outgoing>Flow_09ndpz5</bpmn:outgoing>
+    </bpmn:serviceTask>
     <bpmn:task id="Activity_0q0k3lp" name="Подготовить документы и внести изменения в TMS">
       <bpmn:incoming>Flow_08jryss</bpmn:incoming>
       <bpmn:outgoing>Flow_0vemvik</bpmn:outgoing>
@@ -234,11 +248,19 @@
       <bpmn:outgoing>Flow_0wt2wvi</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_0rq0h2d" />
     </bpmn:boundaryEvent>
+    <bpmn:task id="Activity_1nfx3ed" name="Отправить уведомление менеджеру по продажам">
+      <bpmn:incoming>Flow_1j6yxri</bpmn:incoming>
+      <bpmn:outgoing>Flow_014tmeb</bpmn:outgoing>
+    </bpmn:task>
     <bpmn:endEvent id="Event_0scnsh4" name="Уведомление отправлено">
       <bpmn:incoming>Flow_014tmeb</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_014tmeb" sourceRef="Activity_1nfx3ed" targetRef="Event_0scnsh4" />
     <bpmn:sequenceFlow id="Flow_1j6yxri" sourceRef="Event_1gmvstn" targetRef="Activity_1nfx3ed" />
+    <bpmn:task id="Activity_1gknmnp" name="Отправить уведомление менеджеру по продажам">
+      <bpmn:incoming>Flow_0wt2wvi</bpmn:incoming>
+      <bpmn:outgoing>Flow_0sqblsp</bpmn:outgoing>
+    </bpmn:task>
     <bpmn:endEvent id="Event_1htifky" name="Уведомление отправлено">
       <bpmn:incoming>Flow_0sqblsp</bpmn:incoming>
     </bpmn:endEvent>
@@ -269,23 +291,6 @@
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_1r8eant" sourceRef="Activity_0qzrytt" targetRef="Gateway_0bn7ido" />
     <bpmn:sequenceFlow id="Flow_1mjco8e" name="нет" sourceRef="Gateway_1410szl" targetRef="Gateway_0mjc4wr" />
-    <bpmn:task id="Activity_057ymx4" name="Дозаполнить справку о клиенте">
-      <bpmn:incoming>Flow_0wkn1t4</bpmn:incoming>
-      <bpmn:outgoing>Flow_09ndpz5</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Activity_1hr56g7" name="Взять сделку на юр. проверку">
-      <bpmn:incoming>Flow_1cwr27a</bpmn:incoming>
-      <bpmn:outgoing>Flow_0tkb9g6</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:serviceTask id="Activity_1nfx3ed" name="Отправить уведомление менеджеру по продажам">
-      <bpmn:incoming>Flow_1j6yxri</bpmn:incoming>
-      <bpmn:outgoing>Flow_014tmeb</bpmn:outgoing>
-    </bpmn:serviceTask>
-    <bpmn:serviceTask id="Activity_1gknmnp" name="Отправить уведомление менеджеру по продажам">
-      <bpmn:incoming>Flow_0wt2wvi</bpmn:incoming>
-      <bpmn:outgoing>Flow_0sqblsp</bpmn:outgoing>
-    </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="Flow_1yae7bp" sourceRef="Gateway_18f2gx6" targetRef="Gateway_16vaoab" />
     <bpmn:textAnnotation id="TextAnnotation_11n2ls0">
       <bpmn:text>Маркетинговый аналитик</bpmn:text>
     </bpmn:textAnnotation>
@@ -293,7 +298,7 @@
       <bpmn:text>Менеджер по продажам</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:textAnnotation id="TextAnnotation_0zsw5b2">
-      <bpmn:text>(Свободный) Юрист</bpmn:text>
+      <bpmn:text>Разрабатываемая система</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:textAnnotation id="TextAnnotation_1o1fji7">
       <bpmn:text>Юрист</bpmn:text>
@@ -305,7 +310,7 @@
       <bpmn:text>СТО</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:textAnnotation id="TextAnnotation_1w435g9">
-      <bpmn:text>СТО</bpmn:text>
+      <bpmn:text>Разрабатываемая система</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_00dpeme" sourceRef="Activity_09h5z0f" targetRef="TextAnnotation_11n2ls0" />
     <bpmn:association id="Association_1nfhme1" sourceRef="Activity_057ymx4" targetRef="TextAnnotation_1w435g9" />
@@ -314,9 +319,13 @@
     <bpmn:association id="Association_1yoh4v0" sourceRef="Activity_1cglj9t" targetRef="TextAnnotation_1o1fji7" />
     <bpmn:association id="Association_1pz640d" sourceRef="Activity_00dgazp" targetRef="TextAnnotation_17zg9rt" />
     <bpmn:association id="Association_0uivag9" sourceRef="Activity_08ajgrs" targetRef="TextAnnotation_1of9kmh" />
+    <bpmn:textAnnotation id="TextAnnotation_1ovyx4f">
+      <bpmn:text>Менеджер по продажам</bpmn:text>
+    </bpmn:textAnnotation>
     <bpmn:textAnnotation id="TextAnnotation_181n6lp">
       <bpmn:text>СТО</bpmn:text>
     </bpmn:textAnnotation>
+    <bpmn:association id="Association_072mo6p" sourceRef="Activity_1pj1hrl" targetRef="TextAnnotation_1ovyx4f" />
     <bpmn:association id="Association_1o7cjzu" sourceRef="Activity_0q0k3lp" targetRef="TextAnnotation_181n6lp" />
     <bpmn:textAnnotation id="TextAnnotation_093xl3i">
       <bpmn:text>Система удаленного голосования</bpmn:text>
@@ -329,9 +338,6 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1cv24m5">
-      <bpmndi:BPMNShape id="TextAnnotation_0zsw5b2_di" bpmnElement="TextAnnotation_0zsw5b2">
-        <dc:Bounds x="2290" y="188" width="100" height="41" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1mjco8e_di" bpmnElement="Flow_1mjco8e">
         <di:waypoint x="2725" y="770" />
         <di:waypoint x="2960" y="770" />
@@ -405,7 +411,7 @@
         <di:waypoint x="4100" y="413" />
         <di:waypoint x="4100" y="495" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="3894" y="395" width="45" height="14" />
+          <dc:Bounds x="3907" y="395" width="18" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1n3xd6t_di" bpmnElement="Flow_1n3xd6t">
@@ -431,6 +437,14 @@
           <dc:Bounds x="4464" y="502" width="38" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kjshcb_di" bpmnElement="Flow_0kjshcb">
+        <di:waypoint x="4360" y="520" />
+        <di:waypoint x="4395" y="520" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_014fr07_di" bpmnElement="Flow_014fr07">
+        <di:waypoint x="4215" y="520" />
+        <di:waypoint x="4260" y="520" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0fin9e4_di" bpmnElement="Flow_0fin9e4">
         <di:waypoint x="4035" y="520" />
         <di:waypoint x="4075" y="520" />
@@ -453,7 +467,7 @@
         <di:waypoint x="3755" y="520" />
         <di:waypoint x="3850" y="520" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="3780" y="502" width="45" height="14" />
+          <dc:Bounds x="3796" y="502" width="13" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1aolm4m_di" bpmnElement="Flow_1aolm4m">
@@ -577,7 +591,7 @@
         <di:waypoint x="1735" y="520" />
         <di:waypoint x="1800" y="520" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1737" y="503" width="45" height="14" />
+          <dc:Bounds x="1738" y="503" width="43" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0a1xeg0_di" bpmnElement="Flow_0a1xeg0">
@@ -586,7 +600,7 @@
         <di:waypoint x="2050" y="690" />
         <di:waypoint x="2050" y="545" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1858" y="672" width="45" height="14" />
+          <dc:Bounds x="1859" y="672" width="43" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0udyand_di" bpmnElement="Flow_0udyand">
@@ -670,10 +684,6 @@
       <bpmndi:BPMNEdge id="Flow_1b3y353_di" bpmnElement="Flow_1b3y353">
         <di:waypoint x="218" y="520" />
         <di:waypoint x="260" y="520" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1yae7bp_di" bpmnElement="Flow_1yae7bp">
-        <di:waypoint x="4215" y="520" />
-        <di:waypoint x="4395" y="520" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="182" y="502" width="36" height="36" />
@@ -783,6 +793,9 @@
           <dc:Bounds x="3208" y="635" width="70" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0a48qlw_di" bpmnElement="Activity_1hr56g7">
+        <dc:Bounds x="2290" y="264" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1yqwr7g_di" bpmnElement="Gateway_05a94ae">
         <dc:Bounds x="2215" y="495" width="50" height="50" />
       </bpmndi:BPMNShape>
@@ -825,11 +838,11 @@
           <dc:Bounds x="3977" y="628" width="70" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1pj1hrl_di" bpmnElement="Activity_1pj1hrl" bioc:stroke="#000000" bioc:fill="#ffffff" color:background-color="#ffffff" color:border-color="#000000">
+        <dc:Bounds x="4260" y="480" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_16vaoab_di" bpmnElement="Gateway_16vaoab" isMarkerVisible="true">
         <dc:Bounds x="4395" y="495" width="50" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="4389" y="465" width="63" height="14" />
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0eawnkp_di" bpmnElement="Event_0eawnkp">
         <dc:Bounds x="4692" y="502" width="36" height="36" />
@@ -849,11 +862,14 @@
       <bpmndi:BPMNShape id="Gateway_1mnngb3_di" bpmnElement="Gateway_1mnngb3" isMarkerVisible="true">
         <dc:Bounds x="3705" y="495" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="3715" y="552" width="30" height="14" />
+          <dc:Bounds x="3692" y="552" width="76" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1vntt2v_di" bpmnElement="Gateway_1vntt2v" isMarkerVisible="true">
         <dc:Bounds x="4075" y="495" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0lcvgyf_di" bpmnElement="Activity_057ymx4">
+        <dc:Bounds x="900" y="480" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0q0k3lp_di" bpmnElement="Activity_0q0k3lp">
         <dc:Bounds x="4520" y="480" width="100" height="80" />
@@ -864,11 +880,17 @@
       <bpmndi:BPMNShape id="Activity_0ose7jw_di" bpmnElement="Activity_0vhgjy6">
         <dc:Bounds x="3090" y="480" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1nfx3ed_di" bpmnElement="Activity_1nfx3ed">
+        <dc:Bounds x="2650" y="403" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0scnsh4_di" bpmnElement="Event_0scnsh4">
         <dc:Bounds x="2812" y="425" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2795" y="468" width="70" height="27" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1gknmnp_di" bpmnElement="Activity_1gknmnp">
+        <dc:Bounds x="2630" y="870" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1htifky_di" bpmnElement="Event_1htifky">
         <dc:Bounds x="2792" y="892" width="36" height="36" />
@@ -894,6 +916,9 @@
       <bpmndi:BPMNShape id="TextAnnotation_1o2glnm_di" bpmnElement="TextAnnotation_1o2glnm">
         <dc:Bounds x="1140" y="423" width="100" height="40" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0zsw5b2_di" bpmnElement="TextAnnotation_0zsw5b2">
+        <dc:Bounds x="2290" y="207" width="100" height="41" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1o1fji7_di" bpmnElement="TextAnnotation_1o1fji7">
         <dc:Bounds x="2530" y="213" width="100" height="30" />
       </bpmndi:BPMNShape>
@@ -904,7 +929,10 @@
         <dc:Bounds x="530" y="428" width="100" height="30" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1w435g9_di" bpmnElement="TextAnnotation_1w435g9">
-        <dc:Bounds x="900" y="428" width="100" height="26" />
+        <dc:Bounds x="900" y="428" width="100" height="41" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1ovyx4f_di" bpmnElement="TextAnnotation_1ovyx4f">
+        <dc:Bounds x="4260" y="428" width="100" height="41" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_181n6lp_di" bpmnElement="TextAnnotation_181n6lp">
         <dc:Bounds x="4520" y="428" width="100" height="30" />
@@ -915,22 +943,6 @@
       <bpmndi:BPMNShape id="TextAnnotation_0x4b59j_di" bpmnElement="TextAnnotation_0x4b59j">
         <dc:Bounds x="1440" y="416" width="100" height="54" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0ym4tvs_di" bpmnElement="Activity_057ymx4">
-        <dc:Bounds x="900" y="480" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0rd6zjo_di" bpmnElement="Activity_1hr56g7">
-        <dc:Bounds x="2290" y="264" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0tbhukd_di" bpmnElement="Activity_1nfx3ed">
-        <dc:Bounds x="2650" y="403" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1bxopim_di" bpmnElement="Activity_1gknmnp">
-        <dc:Bounds x="2630" y="870" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_1rsi8gt_di" bpmnElement="Association_1rsi8gt">
-        <di:waypoint x="2340" y="264" />
-        <di:waypoint x="2340" y="229" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_04dvezq_di" bpmnElement="Event_12duxc1">
         <dc:Bounds x="2582" y="792" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -949,11 +961,15 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_1nfhme1_di" bpmnElement="Association_1nfhme1">
         <di:waypoint x="950" y="480" />
-        <di:waypoint x="950" y="454" />
+        <di:waypoint x="950" y="469" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_0cw9ln5_di" bpmnElement="Association_0cw9ln5">
         <di:waypoint x="1190" y="480" />
         <di:waypoint x="1190" y="463" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1rsi8gt_di" bpmnElement="Association_1rsi8gt">
+        <di:waypoint x="2340" y="264" />
+        <di:waypoint x="2340" y="248" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_1yoh4v0_di" bpmnElement="Association_1yoh4v0">
         <di:waypoint x="2580" y="264" />
@@ -966,6 +982,10 @@
       <bpmndi:BPMNEdge id="Association_0uivag9_di" bpmnElement="Association_0uivag9">
         <di:waypoint x="580" y="480" />
         <di:waypoint x="580" y="458" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_072mo6p_di" bpmnElement="Association_072mo6p">
+        <di:waypoint x="4310" y="480" />
+        <di:waypoint x="4310" y="469" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_1o7cjzu_di" bpmnElement="Association_1o7cjzu">
         <di:waypoint x="4570" y="480" />
