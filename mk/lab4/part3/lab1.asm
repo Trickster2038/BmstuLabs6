@@ -42,13 +42,13 @@ ldi temp,0x50 ;при сравнении состояния выводов OC1A и
 out TCCR1A,temp ; OC1B изменяются на противоположные
 clr temp ;останов
 out TCCR1B,temp ; таймера
-ldi temp,0x08 ;запись числа в
+ldi temp,0x07 ;запись числа в
 out OCR1BH,temp ; регистр сравнения,
-ldi temp,0x00 ; первым записывается
+ldi temp,0x0A ; первым записывается
 out OCR1BL,temp ; старший байт
-ldi temp,0x10 ;запись числа в
+ldi temp,0x1C ;запись числа в
 out OCR1AH,temp ; регистр сравнения,
-ldi temp,0x00 ; первым записывается
+ldi temp,0x27 ; первым записывается
 out OCR1AL,temp ; старший байт
 clr temp ;обнуление
 out TCNT1H,temp ; счётного
