@@ -1,0 +1,3 @@
+MODULE tb_waveform
+SUBMODULE lab2_example
+INSTANCE UUT

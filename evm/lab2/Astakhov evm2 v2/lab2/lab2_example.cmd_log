@@ -1,0 +1,2 @@
+xst -ise "C:/Users/user/lab2/lab2.ise" -intstyle ise -ifn "C:/Users/user/lab2/lab2_example.xst" -ofn "C:/Users/user/lab2/lab2_example.syr"
+xst -ise "C:/Users/user/lab2/lab2.ise" -intstyle ise -ifn "C:/Users/user/lab2/lab2_example.xst" -ofn "C:/Users/user/lab2/lab2_example.syr"

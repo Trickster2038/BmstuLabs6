@@ -1,0 +1,57 @@
+# Reading C:/altera/13.0/modelsim_ase/tcl/vsim/pref.tcl 
+# do {seg7_tb.fdo} 
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity Seven_Segment_Driver
+# -- Compiling architecture Struct of Seven_Segment_Driver
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity Seven_Segment_Driver
+# -- Compiling architecture Struct of Seven_Segment_Driver
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity seg7_tb
+# -- Compiling architecture behavior of seg7_tb
+# ** Warning: [4] seg7_tb.vhd(82): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] seg7_tb.vhd(84): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] seg7_tb.vhd(90): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] seg7_tb.vhd(92): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] seg7_tb.vhd(100): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] seg7_tb.vhd(102): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] seg7_tb.vhd(104): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] seg7_tb.vhd(107): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] seg7_tb.vhd(110): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# vsim -lib work -t 1ps seg7_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading work.seg7_tb(behavior)
+# Loading work.seven_segment_driver(struct)
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: user  Hostname: DESKTOP-CO994N8  ProcessID: 2096
+# 
+#           Attempting to use alternate WLF file "./wlftxn8s0k".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftxn8s0k
+# 
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
