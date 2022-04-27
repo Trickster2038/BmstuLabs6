@@ -1,0 +1,5 @@
+vhdl work "Seven_Segment_Driver.vhd"
+vhdl work "top.vhd"
+vhdl work "led_decode.vhd"
+vhdl work "driver.vhd"
+vhdl work "main_ex.vhd"

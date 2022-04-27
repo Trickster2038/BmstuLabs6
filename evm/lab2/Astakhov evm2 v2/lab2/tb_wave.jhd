@@ -1,0 +1,3 @@
+MODULE tb_wave
+SUBMODULE lab2_example
+INSTANCE UUT

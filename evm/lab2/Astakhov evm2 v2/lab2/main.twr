@@ -1,0 +1,80 @@
+--------------------------------------------------------------------------------
+Release 10.1 Trace  (nt)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\10.1\ISE\bin\nt\unwrapped\trce.exe -ise
+C:/Users/user/Desktop/Astakhov evm2/lab2/lab2.ise -intstyle ise -e 3 -s 5 -xml
+main main.ncd -o main.twr main.pcf -ucf main.ucf
+
+Design file:              main.ncd
+Physical constraint file: main.pcf
+Device,package,speed:     xc3s200,ft256,-5 (PRODUCTION 1.39 2008-01-09)
+Report level:             error report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock CLK
+------------+------------+------------+------------------+--------+
+            |  Setup to  |  Hold to   |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+COUNT       |    1.265(R)|    0.264(R)|CLK_BUFGP         |   0.000|
+RESET       |    4.825(R)|    0.715(R)|CLK_BUFGP         |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock CLK to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+A<0>        |    9.991(R)|CLK_BUFGP         |   0.000|
+A<1>        |    8.917(R)|CLK_BUFGP         |   0.000|
+A<2>        |    9.472(R)|CLK_BUFGP         |   0.000|
+A<3>        |    9.615(R)|CLK_BUFGP         |   0.000|
+LED<0>      |   12.545(R)|CLK_BUFGP         |   0.000|
+LED<1>      |   12.986(R)|CLK_BUFGP         |   0.000|
+LED<2>      |   12.942(R)|CLK_BUFGP         |   0.000|
+LED<3>      |   12.492(R)|CLK_BUFGP         |   0.000|
+LED<4>      |   12.579(R)|CLK_BUFGP         |   0.000|
+LED<5>      |   13.067(R)|CLK_BUFGP         |   0.000|
+LED<6>      |   12.928(R)|CLK_BUFGP         |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |    5.676|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Analysis completed Wed Apr 20 16:24:47 2022 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 112 MB
+
+
+

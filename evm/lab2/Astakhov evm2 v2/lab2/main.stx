@@ -1,0 +1,33 @@
+Release 10.1 - xst K.31 (nt)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to ./xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> 
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/user/Desktop/Astakhov evm2/lab2/driver.vhd" in Library work.
+Architecture struct of Entity seven_segment_driver is up to date.
+Compiling vhdl file "C:/Users/user/Desktop/Astakhov evm2/lab2/led_decode.vhd" in Library work.
+Architecture behavioral of Entity led_decode is up to date.
+Compiling vhdl file "C:/Users/user/Desktop/Astakhov evm2/lab2/top.vhd" in Library work.
+Architecture behavioral of Entity lab2_example is up to date.
+Compiling vhdl file "C:/Users/user/Desktop/Astakhov evm2/lab2/main_ex.vhd" in Library work.
+Architecture behavioral of Entity main is up to date.
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.35 secs
+ 
+--> 
+
+Total memory usage is 203004 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

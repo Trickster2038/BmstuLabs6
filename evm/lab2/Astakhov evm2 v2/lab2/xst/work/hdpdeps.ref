@@ -1,0 +1,32 @@
+V3 17
+FL "C:/Users/user/Desktop/Astakhov evm2/lab2/driver.vhd" 2022/04/20.14:25:49 K.31
+FL "C:/Users/user/Desktop/Astakhov evm2/lab2/led_decode.vhd" 2022/04/20.14:51:41 K.31
+EN work/led_decode 1650461055 \
+      FL "C:/Users/user/Desktop/Astakhov evm2/lab2/led_decode.vhd" \
+      PB ieee/std_logic_1164 1200023565 PB ieee/std_logic_arith 1200023566 \
+      PB ieee/STD_LOGIC_UNSIGNED 1200023567
+AR work/led_decode/Behavioral 1650461056 \
+      FL "C:/Users/user/Desktop/Astakhov evm2/lab2/led_decode.vhd" \
+      EN work/led_decode 1650461055
+FL "C:/Users/user/Desktop/Astakhov evm2/lab2/main_ex.vhd" 2022/04/20.14:47:17 K.31
+EN work/main 1650461059 FL "C:/Users/user/Desktop/Astakhov evm2/lab2/main_ex.vhd" \
+      PB ieee/std_logic_1164 1200023565 PB ieee/std_logic_arith 1200023566 \
+      PB ieee/STD_LOGIC_UNSIGNED 1200023567
+AR work/main/Behavioral 1650461060 \
+      FL "C:/Users/user/Desktop/Astakhov evm2/lab2/main_ex.vhd" EN work/main 1650461059 \
+      CP Seven_Segment_Driver CP led_decode CP lab2_example
+FL "C:/Users/user/Desktop/Astakhov evm2/lab2/Seven_Segment_Driver.vhd" 2022/04/20.14:24:25 K.31
+EN work/Seven_Segment_Driver 1650461061 \
+      FL "C:/Users/user/Desktop/Astakhov evm2/lab2/Seven_Segment_Driver.vhd" \
+      PB ieee/std_logic_1164 1200023565 PB ieee/std_logic_arith 1200023566
+AR work/Seven_Segment_Driver/Struct 1650461062 \
+      FL "C:/Users/user/Desktop/Astakhov evm2/lab2/Seven_Segment_Driver.vhd" \
+      EN work/Seven_Segment_Driver 1650461061
+FL "C:/Users/user/Desktop/Astakhov evm2/lab2/top.vhd" 2022/04/20.16:23:58 K.31
+EN work/lab2_example 1650461057 \
+      FL "C:/Users/user/Desktop/Astakhov evm2/lab2/top.vhd" \
+      PB ieee/std_logic_1164 1200023565 PB ieee/std_logic_arith 1200023566 \
+      PB ieee/STD_LOGIC_UNSIGNED 1200023567
+AR work/lab2_example/behavioral 1650461058 \
+      FL "C:/Users/user/Desktop/Astakhov evm2/lab2/top.vhd" EN work/lab2_example 1650461057
+FL C:/Users/user/lab2/top.vhd 2022/03/23.14:46:22 K.31

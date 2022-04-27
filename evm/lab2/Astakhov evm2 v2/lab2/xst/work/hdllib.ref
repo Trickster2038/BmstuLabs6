@@ -1,0 +1,8 @@
+AR main behavioral "C:/Users/user/Desktop/Astakhov evm2/lab2/main_ex.vhd" sub00/vhpl07 1650461060
+EN main NULL "C:/Users/user/Desktop/Astakhov evm2/lab2/main_ex.vhd" sub00/vhpl06 1650461059
+AR lab2_example behavioral "C:/Users/user/Desktop/Astakhov evm2/lab2/top.vhd" sub00/vhpl01 1650461058
+EN seven_segment_driver NULL "C:/Users/user/Desktop/Astakhov evm2/lab2/driver.vhd" sub00/vhpl02 1650461061
+AR led_decode behavioral "C:/Users/user/Desktop/Astakhov evm2/lab2/led_decode.vhd" sub00/vhpl05 1650461056
+AR seven_segment_driver struct "C:/Users/user/Desktop/Astakhov evm2/lab2/driver.vhd" sub00/vhpl03 1650461062
+EN lab2_example NULL "C:/Users/user/Desktop/Astakhov evm2/lab2/top.vhd" sub00/vhpl00 1650461057
+EN led_decode NULL "C:/Users/user/Desktop/Astakhov evm2/lab2/led_decode.vhd" sub00/vhpl04 1650461055
