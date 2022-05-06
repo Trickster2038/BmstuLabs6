@@ -85,44 +85,32 @@ BEGIN
 	   -- Stimulus process
 	   stim_proc: process
 	   begin		
+		C <= "000000"; --S1 -> S1
         RST <= '0';
         WAIT FOR CLK_PERIOD;
-        C <= "001000"; --S1 -> S1
         RST <= '1';
-        WAIT FOR CLK_PERIOD;
-        WAIT FOR CLK_PERIOD;
-        C <= "101000"; --S1 -> S2
-        WAIT FOR CLK_PERIOD;
-        C <= "000010"; --S2 -> S2
-        WAIT FOR CLK_PERIOD;
-        C <= "000001"; --S2 -> S3
-        WAIT FOR CLK_PERIOD;
-        C <= "000000"; --S3 -> S3
-        WAIT FOR CLK_PERIOD;
-        C <= "000010"; --S3 -> S1
+		
+		-- Loop 1 --
+		C <= "000000"; --S1 -> S1
         WAIT FOR CLK_PERIOD;
         C <= "001100"; --S1 -> S4
         WAIT FOR CLK_PERIOD;
-        C <= "000000"; --S4 -> S4
+		C <= "100001"; --S4 -> S4
         WAIT FOR CLK_PERIOD;
-        C <= "000100"; --S4 -> S3
+		C <= "000000"; --S4 -> S3
         WAIT FOR CLK_PERIOD;
-        C <= "000010"; --S3 -> S1
+		C <= "000000"; --S3 -> S3
         WAIT FOR CLK_PERIOD;
-        C <= "000000"; --S1 -> S5
+		C <= "000011"; --S3 -> S1
         WAIT FOR CLK_PERIOD;
-        C <= "100000"; --S5 -> S5
+		C <= "000000"; --S1 -> S1
         WAIT FOR CLK_PERIOD;
-        C <= "001001"; --S5 -> S1
-        WAIT FOR CLK_PERIOD;
-        C <= "001001"; --S1 -> S6
-        WAIT FOR CLK_PERIOD;
-        C <= "000101"; --S6 -> S6
-        WAIT FOR CLK_PERIOD;
-        C <= "000000"; --S6 -> S5
-        WAIT FOR CLK_PERIOD;
-
-
+		
+		-- Loop 2 --
+		
+		
+        
+       
 		  wait;
 	   end process;
 

@@ -17,65 +17,67 @@ BEGIN
 PROCESS (clk, rst)
 BEGIN
     IF (rst='0') THEN
-        M <= "00000000";
+        M <= "00000100";
         current_state <= s1;
     ELSIF (CLK'EVENT AND CLK='1') THEN
         CASE current_state IS
+		
         WHEN S1 =>
-            M <= "00000010";
-            IF (C(2)='0' AND C(3)='0') THEN
-                M <= "00011000";
-                current_state <= S4;
-            ELSIF (C(4)='0') OR (C(5)='0') THEN
-                M <= "00000101";
+            M <= "00000100";
+            IF (C(4)='1' AND C(5)='1') THEN
                 current_state <= S2;
-            ELSIF (C(0)='0') OR (C(2)='0') THEN
-                M <= "01100000";
-                current_state <= S6;
+			ELSIF (C(2)='1') AND (C(3)='1') THEN
+                M <= "00011100";
+                current_state <= S4;
             ELSIF (C(3)='1') THEN
                 current_state <= S5;
-            ELSE
-                M <= "00001000";
-                current_state <= S1;
-            END IF;
-        WHEN S2 =>
-            M <= "00101000";
-            IF (C(0)='0' AND C(1)='1') THEN
-                current_state <= S3;
-            ELSE
-                current_state <= S2;
-            END IF;
-        WHEN S3 =>
-            M <= "01000000";
-            IF (C(1)='0') THEN
-                M <= "10010000";
-                current_state <= S1;
-            ELSE
-                M <= "00000010";
-                current_state <= S3;
-            END IF;
-        WHEN S4 =>
-            IF (C(0)='0') OR (C(2)='0') THEN
-                M <= "10001000";
-                current_state <= S3;
-            ELSE
-                current_state <= S4;
-            END IF;
-        WHEN S5 =>
-            M <= "10000000";
-            IF (C(3)='0' AND C(5)='1' AND C(0)='0') THEN
-                M <= "00000010";
-                current_state <= S1;
-            ELSE
-                current_state <= S5;
-            END IF;
-        WHEN S6 =>
-            M <= "00010100";
-            IF (C(0)='0' AND C(2)='0') THEN
+			ELSIF (C(0)='1') AND (C(2)='1') THEN
+                M <= "00000001";
                 current_state <= S6;
             ELSE
-                M <= "00000010";
+                current_state <= S1;
+            END IF;
+			
+        WHEN S2 =>
+            M <= "00000001";
+            IF (C(0)='1' AND C(1)='1' AND C(2)='1') THEN
+                M <= "10100000";
+				current_state <= S2;
+            ELSE
+                current_state <= S3;
+            END IF;
+			
+        WHEN S3 =>
+            M <= "10000010";
+            IF (C(0)='1' AND C(1)='1') THEN
+                current_state <= S1;
+            ELSE
+                current_state <= S3;
+            END IF;
+			
+        WHEN S4 =>
+			M <= "01100000";
+            IF (C(0)='1') AND (C(5)='1') THEN
+                M <= "00100000";
+                current_state <= S4;
+            ELSE
+                current_state <= S3;
+            END IF;
+			
+        WHEN S5 =>
+            M <= "00001000";
+            IF (C(0)='1' AND C(1)='1' AND C(2)='1') THEN
+                current_state <= S1;
+            ELSE
                 current_state <= S5;
+            END IF;
+			
+        WHEN S6 =>
+            M <= "00010000";
+            IF ((C(4)='1' AND C(5)='1') OR C(0)='1') THEN
+                current_state <= S5;
+            ELSE
+                current_state <= S6;
             END IF;
         END CASE;
     END IF;
