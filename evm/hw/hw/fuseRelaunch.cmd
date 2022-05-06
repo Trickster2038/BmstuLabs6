@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Users/Professional/Desktop/BmstuLabs6/evm/hw/hw/control_unit_tb_isim_beh.exe" -prj "C:/Users/Professional/Desktop/BmstuLabs6/evm/hw/hw/control_unit_tb_beh.prj" "work.control_unit_tb" 

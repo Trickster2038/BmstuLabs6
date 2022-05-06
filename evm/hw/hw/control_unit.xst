@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Professional/Desktop/BmstuLabs6/evm/hw/hw/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Professional/Desktop/BmstuLabs6/evm/hw/hw/xst"
+elaborate
+-ifn control_unit.prj
+-ifmt mixed

@@ -1,0 +1,9 @@
+V3 3
+FL C:/Users/Professional/Desktop/BmstuLabs6/evm/hw/hw/control_unit.vhd 2022/05/06.14:39:07 P.20131013
+EN work/control_unit 1651837160 \
+      FL C:/Users/Professional/Desktop/BmstuLabs6/evm/hw/hw/control_unit.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/control_unit/arch_control_unit 1651837161 \
+      FL C:/Users/Professional/Desktop/BmstuLabs6/evm/hw/hw/control_unit.vhd \
+      EN work/control_unit 1651837160
