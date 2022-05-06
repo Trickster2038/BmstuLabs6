@@ -104,12 +104,46 @@ BEGIN
 		C <= "000011"; --S3 -> S1
         WAIT FOR CLK_PERIOD;
 		C <= "000000"; --S1 -> S1
-        WAIT FOR CLK_PERIOD;
+        WAIT FOR CLK_PERIOD*5;
 		
 		-- Loop 2 --
 		
+		C <= "110000"; --S1 -> S2
+        WAIT FOR CLK_PERIOD;
+		C <= "000111"; --S2 -> S2
+        WAIT FOR CLK_PERIOD;
+		C <= "000000"; --S2 -> S3
+        WAIT FOR CLK_PERIOD;
+		C <= "000000"; --S3 -> S3
+        WAIT FOR CLK_PERIOD;
+		C <= "000011"; --S3 -> S1
+		WAIT FOR CLK_PERIOD;
+		C <= "000000"; --S1 -> S1
+        WAIT FOR CLK_PERIOD*5;
 		
+		-- Loop 3 --
+		
+		C <= "000101"; --S1 -> S6
+        WAIT FOR CLK_PERIOD;
+		C <= "000000"; --S6 -> S6
+        WAIT FOR CLK_PERIOD;
+		C <= "110000"; --S6 -> S5
+        WAIT FOR CLK_PERIOD;
+		C <= "000000"; --S5 -> S5
+        WAIT FOR CLK_PERIOD;
+		C <= "000111"; --S5 -> S1
+        WAIT FOR CLK_PERIOD;
+		C <= "000000"; --S1 -> S1
+        WAIT FOR CLK_PERIOD*5;
         
+		-- Loop 4 --
+		
+		C <= "001000"; --S1 -> S5
+        WAIT FOR CLK_PERIOD;
+		C <= "000111"; --S5 -> S1
+        WAIT FOR CLK_PERIOD;
+		C <= "000000"; --S1 -> S1
+        WAIT FOR CLK_PERIOD*5;
        
 		  wait;
 	   end process;
