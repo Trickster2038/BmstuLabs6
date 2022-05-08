@@ -19,7 +19,7 @@ ldi temp,high(RAMEND) ; на последнюю
 out SPH,temp ; ячейку ОЗУ
 ldi YL,0x80 ;в регистре Y - адрес, по которому
 ldi YH,0x01 ; происходит запись принятых данных
-ldi count,3 ;установка счётчика байтов
+ldi count, 3 ;установка счётчика байтов
 ser temp ;настройка 
 out DDRB,temp ; порта PB на вывод
 out PORTB,temp ; и выключение светодиодов
@@ -62,9 +62,9 @@ out PORTB,temp ;светодиоды погашены
 rjmp LOOP ;повторение вывода
 
 ;*** Задержка ***
-DELAY: ldi r19,20
-ldi r20,255
-ldi r21,255
+DELAY: ldi r19, 20
+ldi r20, 255
+ldi r21, 255
 dd: dec r21
 brne dd
 dec r20
