@@ -59,7 +59,7 @@ ldi count,3 ;установка счётчика байтов
 WAIT_SHOW: sbic PIND,SHOW ;ожидание нажатия
 rjmp WAIT_SHOW ; кнопки SHOW
 ld temp,X+ ;считывание байта из памяти
-com temp ;инвертирование и
+;com temp ;инвертирование и
 out PORTC,temp ;вывод на светодиоды
 rcall DELAY ;задержка
 dec count ;если показаны не все данные,
