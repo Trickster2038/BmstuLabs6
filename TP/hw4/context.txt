@@ -1,0 +1,44 @@
+https://structurizr.com/dsl
+
+==========================================
+
+workspace "Getting Started" "This is a model of my software system." {
+
+    model {
+        user = person "Пользователь" "Сотрудник IT-case"
+        softwareSystem_our = softwareSystem "Система согласования сделок" "Наш продукт"
+        softwareSystem_tms = softwareSystem "TMS" "Cистема по работе с тендерами" "Software System 2"
+        softwareSystem_cf = softwareSystem "Контур-фокус" "Cистема, предоставляющая данные о клиентах" "Software System 2"
+
+        user -> softwareSystem_our "Работает над информацией о сделках и согласует их"
+        softwareSystem_our -> softwareSystem_tms "Работает с конкурсными заявками"
+        softwareSystem_our -> softwareSystem_cf "Получает информацию о клиенте"
+    }
+
+    views {
+        systemContext softwareSystem_our "SystemContext" "System Context diagram" {
+            include *
+            autoLayout
+        }
+
+        styles {
+            element "Software System" {
+                background #1168bd
+                color #ffffff
+            }
+            element "Software System 2" {
+                background #999999
+                color #ffffff
+            }
+            element "Person" {
+                shape person
+                background #08427b
+                color #ffffff
+            }
+        }
+    }
+    
+}
+
+
+==========================================
