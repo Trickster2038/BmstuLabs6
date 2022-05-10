@@ -1,0 +1,109 @@
+workspace {
+
+    model {
+
+        user = person "Пользователь" "Сотрудник IT-case"
+        
+        softwareSystem_tms = softwareSystem "TMS" "Cистема по работе с тендерами" "Software System 2"
+        softwareSystem_cf = softwareSystem "Контур-фокус" "Cистема, предоставляющая данные о клиентах" "Software System 2"
+        
+        softwareSystem = softwareSystem "Система согласования сделок" {
+            
+                frontend = container "Frontend" "Предоставляет GUI" "React JS"
+                backend = container "Backend" "Серверная часть приложения" "GoLang" {
+                    client_controller = component "Client Controller" "Отвечает за работу с информацией о клиентах" "GoLang"
+                    deal_controller = component "Deal Controller" "Отвечает за работу с информаией о сделках" "GoLang"
+                    client_model = component "Client Model" "Отвечает за работу таблицей БД о клиентах" "GoLang"
+                    deal_model = component "Deal model" "Отвечает за работу с таблицами БД о сделках" "GoLang"
+                    auth_controller = component "Security Component" "Отвечает за работу с аутентификацией" "GoLang"
+                    notification_service = component "Notification Service" "Отвечает за мониторинг сроков и рассылку уведомлений" "GoLang"
+                }
+                db = container "База данных" "БД с информацией о сделках" "PostgreSQL" "DB"
+
+                frontend -> backend "Обращается по REST API" "JSON/HTTPS"
+                frontend -> auth_controller "Авторизуется / Изменяет учетные данные" "HTTPS"
+                frontend -> deal_controller "Работает с информацией о сделке" "JSON/HTTPS"
+                frontend -> client_controller "Работает с информацией о клиенте" "JSON/HTTPS"
+                frontend -> notification_service "Запрашивает новые уведомления" "JSON/HTTPS"
+                
+                deal_controller -> deal_model "Использует"
+                client_controller -> client_model "Использует"
+                notification_service -> deal_model "Использует"
+                auth_controller -> db "Изменяет/считывает учетные данные" "Database Connection"
+                
+                deal_controller -> softwareSystem_tms "Взаимодействует с конкурсными заявками" "JSON/HTTPS"
+                client_controller -> softwareSystem_cf "Получает информацию о клиенте" "JSON/HTTPS"
+                
+                client_model -> db "Изменяет/считывает таблицу клиентов" "Database Connection"
+                deal_model -> db "Изменяет/считывает таблицы сделок" "Database Connection"
+                
+                backend -> db "Вносит изменения в БД" "Database Connection"
+            
+        }
+        
+
+        live = deploymentEnvironment "Live" {
+            deploymentNode "Server 1" {
+                containerInstance frontend 
+                containerInstance backend
+                containerInstance db 
+            }
+        }
+        
+        user -> frontend "Использует GUI" "HTTP/HTTPS"
+
+        backend ->  softwareSystem_tms "Взаимодействует с конкурсными заявками" "JSON/HTTPS"
+        backend ->  softwareSystem_cf "Получает информацию о клиенте" "JSON/HTTPS"
+    }
+
+    views {
+        container softwareSystem {
+            include *
+            autolayout
+        }
+        component backend "Components" {
+            include *
+            animation {
+                frontend auth_controller
+            }
+            autoLayout
+        }
+        
+        dynamic backend "SignIn" "Summarises how the sign in feature works in the single-page application." {
+            frontend -> auth_controller "Submits credentials to"
+            autoLayout
+        }
+
+        deployment softwareSystem live {
+            include *
+            autolayout
+        }
+        
+        styles {
+            element "Container" {
+                background #1168bd
+                color #ffffff
+            }
+            element "Software System" {
+                background #1168bd
+                color #ffffff
+            }
+            element "Software System 2" {
+                background #999999
+                color #ffffff
+            }
+            element "DB" {
+                shape cylinder
+                background #1168bd
+                color #ffffff
+            }
+            element "Person" {
+                shape person
+                background #08427b
+                color #ffffff
+            }
+        }
+        
+    }
+    
+}

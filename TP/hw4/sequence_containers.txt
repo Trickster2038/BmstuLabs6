@@ -1,0 +1,78 @@
+https://mermaid.live/
+=================================================================
+
+sequenceDiagram
+    actor Пользователь
+    participant Frontend
+    participant Backend
+    participant БазаДанных
+    participant TMS
+    participant КонтурФокус
+
+    rect rgb(191, 223, 255)
+    note right of Пользователь: Обычное взаимодействие с системой
+    Пользователь->>Frontend: Заполнить форму
+    activate Пользователь
+    activate Frontend
+    Frontend->>Backend: REST запрос (JSON)
+    activate Backend
+    Backend->>БазаДанных: SQL-запрос
+    activate БазаДанных
+    БазаДанных-->>Backend: Данные/статус операции
+    deactivate БазаДанных
+    Backend-->>Frontend: REST ответ(JSON)
+    deactivate Backend
+    Frontend-->>Пользователь: Отобразить результат
+    deactivate Frontend
+    deactivate Пользователь
+    end
+
+    rect rgb(191, 223, 255)
+    note right of Пользователь: Взаимодействие с тендерной площадкой
+    Пользователь->>Frontend: Запросить/редактировать информацию о тендере
+    activate Пользователь
+    activate Frontend
+    Frontend->>Backend: REST запрос (JSON)
+    activate Backend
+        Backend->>TMS: REST запрос (JSON)
+        activate TMS
+        TMS-->>Backend: REST ответ(JSON)
+        deactivate TMS
+    opt Информация о тендере изменена
+        Backend->>БазаДанных: SQL-запрос
+        activate БазаДанных
+        БазаДанных-->>Backend: Данные/статус операции
+        deactivate БазаДанных
+    end
+    Backend-->>Frontend: REST ответ(JSON)
+    deactivate Backend
+    Frontend-->>Пользователь: Отобразить результат
+    deactivate Frontend
+    deactivate Пользователь
+    end
+
+    rect rgb(191, 223, 255)
+    note right of Пользователь: Запрос информации о клиенте
+    Пользователь->>Frontend: Запросить информацию о клиенте
+    activate Пользователь
+    activate Frontend
+    Frontend->>Backend: REST запрос (JSON)
+    activate Backend
+        Backend->>КонтурФокус: REST запрос (JSON)
+        activate КонтурФокус
+        КонтурФокус-->>Backend: REST ответ(JSON)
+        deactivate КонтурФокус
+    opt Информация о клиенте устарела
+        Backend->>БазаДанных: SQL-запрос
+        activate БазаДанных
+        БазаДанных-->>Backend: Данные/статус операции
+        deactivate БазаДанных
+    end
+    Backend-->>Frontend: REST ответ(JSON)
+    deactivate Backend
+    Frontend-->>Пользователь: Отобразить результат
+    deactivate Frontend
+    deactivate Пользователь
+    end
+
+  

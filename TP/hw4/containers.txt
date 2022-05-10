@@ -1,0 +1,73 @@
+workspace {
+
+    model {
+        user = person "Пользователь" "Сотрудник IT-case"
+        
+        softwareSystem_tms = softwareSystem "TMS" "Cистема по работе с тендерами" "Software System 2"
+        softwareSystem_cf = softwareSystem "Контур-фокус" "Cистема, предоставляющая данные о клиентах" "Software System 2"
+        
+        softwareSystem = softwareSystem "Система согласования сделок" {
+            
+                frontend = container "Frontend" "Предоставляет GUI" "React JS"
+                backend = container "Backend" "Серверная часть приложения" "GoLang"
+                db = container "База данных" "БД с информацией о сделках" "PostgreSQL" "DB"
+
+                frontend -> backend "Обращается по REST API" "JSON/HTTPS"
+                backend -> db "Вносит изменения в БД" "Database Connection"
+            
+        }
+        
+
+        live = deploymentEnvironment "Live" {
+            deploymentNode "Server 1" {
+                containerInstance frontend 
+                containerInstance backend
+                containerInstance db 
+            }
+        }
+        
+        user -> frontend "Использует GUI" "HTTP/HTTPS"
+
+        backend ->  softwareSystem_tms "Взаимодействует с конкурсными заявками" "JSON/HTTPS"
+        backend ->  softwareSystem_cf "Получает информацию о клиенте" "JSON/HTTPS"
+    }
+
+    views {
+        container softwareSystem {
+            include *
+            autolayout
+        }
+
+        deployment softwareSystem live {
+            include *
+            autolayout
+        }
+        
+        styles {
+            element "Container" {
+                background #1168bd
+                color #ffffff
+            }
+            element "Software System" {
+                background #1168bd
+                color #ffffff
+            }
+            element "Software System 2" {
+                background #999999
+                color #ffffff
+            }
+            element "DB" {
+                shape cylinder
+                background #1168bd
+                color #ffffff
+            }
+            element "Person" {
+                shape person
+                background #08427b
+                color #ffffff
+            }
+        }
+        
+    }
+    
+}
