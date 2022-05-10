@@ -1,0 +1,79 @@
+sequenceDiagram
+    participant Frontend
+    participant SecurityComponent
+    participant NotificationService
+    participant DealController
+    participant ClientController
+    participant DealModel
+    participant ClientModel
+    participant БазаДанных
+    participant TMS
+    participant КонтурФокус
+
+    rect rgb(230,250,240)
+    note right of Frontend: Аутентификация
+    Frontend->>+SecurityComponent: Учетные данные, HTTPS
+    activate Frontend
+    SecurityComponent->>+БазаДанных: SQL-запрос с учетными данными
+    БазаДанных-->>-SecurityComponent: Результаты поиска
+    SecurityComponent-->>-Frontend: Изменение данных сессии
+    deactivate Frontend
+    end
+
+    rect rgb(230,250,240)
+    note right of Frontend: Проверка нотификаций
+    note right of Frontend: Нотификации уведомляют об изменениях сделок и о "повисших" сделках
+    Frontend-)+NotificationService: Запрос непрочитанных уведомлений
+    activate Frontend
+    NotificationService-)+DealModel: Запрос данных по сделкам пользователя
+    DealModel-)+БазаДанных: Запрос данных по сделкам пользователя
+    БазаДанных--)-DealModel: Данные по сделкам пользователя
+    DealModel--)-NotificationService: Данные по сделкам пользователя
+    NotificationService--)-Frontend: Непрочитанные уведомления
+    deactivate Frontend
+    end
+
+    rect rgb(230,250,240)
+    note right of Frontend: Работа с информацией о сделке
+    note right of Frontend: Работа с информацией о клиенте в БД нашего приложения аналогична
+    Frontend->>+DealController: REST запрос (JSON)
+    activate Frontend
+    DealController->>+DealModel: CRUD-операция
+    DealModel->>+БазаДанных: SQL-запрос
+    БазаДанных-->>-DealModel: Данные
+    DealModel-->>-DealController: Данные/статус
+    DealController-->>-Frontend: REST ответ (JSON)
+    deactivate Frontend
+    end
+
+    rect rgb(230,250,240)
+    note right of Frontend: Запрос информации о клиенте
+    Frontend->>+ClientController: REST запрос (JSON)
+    activate Frontend
+    ClientController->>+КонтурФокус: REST запрос (JSON), GET
+    КонтурФокус->>-ClientController: REST ответ (JSON)
+    opt Информация о клиенте устарела
+        ClientController->>+ClientModel: CRUD-операция
+        ClientModel->>+БазаДанных: SQL-запрос
+        БазаДанных-->>-ClientModel: Данные
+        ClientModel-->>-ClientController: Данные/статус
+    end
+    ClientController-->>-Frontend: REST ответ (JSON)
+    deactivate Frontend
+    end
+
+    rect rgb(230,250,240)
+    note right of Frontend: Запрос информации о тендере
+    Frontend->>+DealController: REST запрос (JSON)
+    activate Frontend
+    DealController->>+TMS: REST запрос (JSON), GET
+    TMS->>-DealController: REST ответ (JSON)
+    opt Информация о тендере изменена
+        DealController->>+DealModel: CRUD-операция
+        DealModel->>+БазаДанных: SQL-запрос
+        БазаДанных-->>-DealModel: Данные
+        DealModel-->>-DealController: Данные/статус
+    end
+    DealController-->>-Frontend: REST ответ (JSON)
+    deactivate Frontend
+    end

@@ -58,7 +58,7 @@ sequenceDiagram
     activate Frontend
     Frontend->>Backend: REST запрос (JSON)
     activate Backend
-        Backend->>КонтурФокус: REST запрос (JSON)
+        Backend->>КонтурФокус: REST запрос (JSON), GET
         activate КонтурФокус
         КонтурФокус-->>Backend: REST ответ(JSON)
         deactivate КонтурФокус
