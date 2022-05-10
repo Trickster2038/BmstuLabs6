@@ -9,7 +9,7 @@ sequenceDiagram
     participant TMS
     participant КонтурФокус
 
-    rect rgb(191, 223, 255)
+    rect rgb(230,250,240)
     note right of Пользователь: Обычное взаимодействие с системой
     Пользователь->>Frontend: Заполнить форму
     activate Пользователь
@@ -27,7 +27,7 @@ sequenceDiagram
     deactivate Пользователь
     end
 
-    rect rgb(191, 223, 255)
+    rect rgb(230,250,240)
     note right of Пользователь: Взаимодействие с тендерной площадкой
     Пользователь->>Frontend: Запросить/редактировать информацию о тендере
     activate Пользователь
@@ -51,7 +51,7 @@ sequenceDiagram
     deactivate Пользователь
     end
 
-    rect rgb(191, 223, 255)
+    rect rgb(230,250,240)
     note right of Пользователь: Запрос информации о клиенте
     Пользователь->>Frontend: Запросить информацию о клиенте
     activate Пользователь
