@@ -1,9 +1,11 @@
+https://mermaid.live/
+=================================================================
+
 sequenceDiagram
     actor Пользователь
     participant Frontend
     participant Backend
     participant БазаДанных
-    participant ApiGateway
     participant TMS
     participant КонтурФокус
 
@@ -31,12 +33,11 @@ sequenceDiagram
     activate Пользователь
     activate Frontend
     Frontend->>Backend: REST запрос (JSON)
-
     activate Backend
-    Backend->>+ApiGateway:REST запрос (JSON)
-    ApiGateway->>+TMS:REST запрос (JSON)
-    TMS-->>-ApiGateway:REST ответ(JSON)
-    ApiGateway-->>-Backend:REST ответ(JSON)
+        Backend->>TMS: REST запрос (JSON)
+        activate TMS
+        TMS-->>Backend: REST ответ(JSON)
+        deactivate TMS
     opt Информация о тендере изменена
         Backend->>БазаДанных: SQL-запрос
         activate БазаДанных
@@ -57,10 +58,10 @@ sequenceDiagram
     activate Frontend
     Frontend->>Backend: REST запрос (JSON)
     activate Backend
-    Backend->>+ApiGateway:REST запрос (JSON)
-    ApiGateway->>+КонтурФокус:REST запрос (JSON)
-    КонтурФокус-->>-ApiGateway:REST ответ(JSON)
-    ApiGateway-->>-Backend:REST ответ(JSON)
+        Backend->>КонтурФокус: REST запрос (JSON), GET
+        activate КонтурФокус
+        КонтурФокус-->>Backend: REST ответ(JSON)
+        deactivate КонтурФокус
     opt Информация о клиенте устарела
         Backend->>БазаДанных: SQL-запрос
         activate БазаДанных

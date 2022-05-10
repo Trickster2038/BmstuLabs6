@@ -10,6 +10,7 @@ workspace {
             
                 frontend = container "Frontend" "Предоставляет GUI" "React JS"
                 backend = container "Backend" "Серверная часть приложения" "GoLang"
+                api = container "API Gateway" "Шлюз для обращения к внешним сервисам" "GoLang"
                 db = container "База данных" "БД с информацией о сделках" "PostgreSQL" "DB"
 
                 frontend -> backend "Обращается по REST API" "JSON/HTTPS"
@@ -27,9 +28,9 @@ workspace {
         }
         
         user -> frontend "Использует GUI" "HTTP/HTTPS"
-
-        backend ->  softwareSystem_tms "Взаимодействует с конкурсными заявками" "JSON/HTTPS"
-        backend ->  softwareSystem_cf "Получает информацию о клиенте" "JSON/HTTPS"
+        backend -> api "Взаимодействет со сторонними сервисами через шлюз" "JSON/HTTPS"
+        api ->  softwareSystem_tms "Взаимодействует с конкурсными заявками" "JSON/HTTPS"
+        api ->  softwareSystem_cf "Получает информацию о клиенте" "JSON/HTTPS"
     }
 
     views {

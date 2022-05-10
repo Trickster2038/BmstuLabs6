@@ -10,6 +10,7 @@ workspace {
         softwareSystem = softwareSystem "Система согласования сделок" {
             
                 frontend = container "Frontend" "Предоставляет GUI" "React JS"
+                api = container "API Gateway" "Шлюз для обращения к внешним сервисам" "Golang"
                 backend = container "Backend" "Серверная часть приложения" "GoLang" {
                     client_controller = component "Client Controller" "Отвечает за работу с информацией о клиентах" "GoLang"
                     deal_controller = component "Deal Controller" "Отвечает за работу с информаией о сделках" "GoLang"
@@ -31,8 +32,11 @@ workspace {
                 notification_service -> deal_model "Использует"
                 auth_controller -> db "Изменяет/считывает учетные данные" "Database Connection"
                 
-                deal_controller -> softwareSystem_tms "Взаимодействует с конкурсными заявками" "JSON/HTTPS"
-                client_controller -> softwareSystem_cf "Получает информацию о клиенте" "JSON/HTTPS"
+                
+                deal_controller -> api "Взаимодействет со сторонними сервисами через шлюз" "JSON/HTTPS"
+                client_controller -> api "Взаимодействет со сторонними сервисами через шлюз" "JSON/HTTPS"
+                api -> softwareSystem_tms "Взаимодействует с конкурсными заявками" "JSON/HTTPS"
+                api -> softwareSystem_cf "Получает информацию о клиенте" "JSON/HTTPS"
                 
                 client_model -> db "Изменяет/считывает таблицу клиентов" "Database Connection"
                 deal_model -> db "Изменяет/считывает таблицы сделок" "Database Connection"

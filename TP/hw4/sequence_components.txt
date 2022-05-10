@@ -7,6 +7,7 @@ sequenceDiagram
     participant DealModel
     participant ClientModel
     participant БазаДанных
+    participant ApiGateway
     participant TMS
     participant КонтурФокус
 
@@ -50,8 +51,10 @@ sequenceDiagram
     note right of Frontend: Запрос информации о клиенте
     Frontend->>+ClientController: REST запрос (JSON)
     activate Frontend
-    ClientController->>+КонтурФокус: REST запрос (JSON), GET
-    КонтурФокус->>-ClientController: REST ответ (JSON)
+    ClientController->>+ApiGateway: REST запрос (JSON), GET
+    ApiGateway->>+КонтурФокус: REST запрос (JSON), GET
+    КонтурФокус->>-ApiGateway: REST ответ (JSON)
+    ApiGateway->>-ClientController: REST ответ (JSON)
     opt Информация о клиенте устарела
         ClientController->>+ClientModel: CRUD-операция
         ClientModel->>+БазаДанных: SQL-запрос
@@ -66,8 +69,10 @@ sequenceDiagram
     note right of Frontend: Запрос информации о тендере
     Frontend->>+DealController: REST запрос (JSON)
     activate Frontend
-    DealController->>+TMS: REST запрос (JSON), GET
-    TMS->>-DealController: REST ответ (JSON)
+    DealController->>+ApiGateway: REST запрос (JSON), GET
+    ApiGateway->>+TMS: REST запрос (JSON), GET
+    TMS->>-ApiGateway: REST ответ (JSON)
+    ApiGateway->>-DealController: REST ответ (JSON)
     opt Информация о тендере изменена
         DealController->>+DealModel: CRUD-операция
         DealModel->>+БазаДанных: SQL-запрос
