@@ -19,7 +19,7 @@ ldi temp,high(RAMEND) ; на последнюю
 out SPH,temp ; €чейку ќ«”
 ldi YL,0x80 ;в регистре Y - адрес, по которому
 ldi YH,0x01 ; происходит запись прин€тых данных
-ldi count, 5 ;установка счЄтчика байтов
+ldi count, 7 ;установка счЄтчика байтов
 ser temp ;настройка 
 out DDRB,temp ; порта PB на вывод
 out PORTB,temp ; и выключение светодиодов
@@ -48,7 +48,7 @@ clr temp ;сигнализаци€ Ц
 out PORTB,temp ; приЄм завершен
 
 LOOP: ldi YL,0x80 ;установка начального адреса
-ldi count,5 ;установка счЄтчика байтов 
+ldi count,7 ;установка счЄтчика байтов 
 WAIT_SHOW: sbic PIND,SHOW ;ожидание нажати€
 rjmp WAIT_SHOW ; кнопки SW5
 ld temp, Y+ ;считывание байта из пам€ти

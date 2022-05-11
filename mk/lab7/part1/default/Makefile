@@ -37,7 +37,7 @@ HEX_EEPROM_FLAGS += --change-section-lma .eeprom=0 --no-change-warnings
 
 
 ## Include Directories
-INCLUDES = -I"C:\Users\Professional\Desktop\BmstuLabs6\mk\lab7\lab7\..\..\..\..\..\..\..\WinAVR-20100110" 
+INCLUDES = -I"C:\Users\Professional\Desktop\BmstuLabs6\mk\lab7\part1\..\..\..\..\..\..\..\WinAVR-20100110" 
 
 ## Objects that must be built in order to link
 OBJECTS = lab7.o 

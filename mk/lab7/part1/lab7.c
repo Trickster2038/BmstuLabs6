@@ -3,15 +3,15 @@
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #define xtal 3686400
-#define fled 2 
-unsigned char led_status=0xfe;
+#define fled 0.5 
+unsigned char led_status=0x7f;
  
 ISR(TIMER1_OVF_vect)
 { 
 TCNT1=0x10000-(xtal/1024/fled); 
-led_status<<=1; 
-led_status|=0x1; 
-if (led_status==0xff) led_status=0xfe; 
+led_status>>=1; 
+led_status|=0x80; 
+if (led_status==0xff) led_status=0x7f; 
 PORTC=led_status; 
 } 
 
