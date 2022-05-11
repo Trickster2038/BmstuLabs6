@@ -11,9 +11,9 @@ ISR(INT0_vect)
  PORTB |= (1<<PB6); //PORTB=0b11000001 (выключаем светодиод LED6)
  do {
  PORTB &= ~(1<<PB7);//PORTB=0b01000001 (включаем светодиод LED7)
- _delay_ms(500); // задержка 500 мс
+ _delay_ms(300); // задержка 500 мс
  PORTB |= (1<<PB7); //PORTB=0b11000001 (выключаем светодиод LED7)
- _delay_ms(500);
+ _delay_ms(300);
  } while (--timer != 0);
  PORTB &= ~(1<<PB6); //PORTB=0b10000001 (включаем светодиод LED6)
  }

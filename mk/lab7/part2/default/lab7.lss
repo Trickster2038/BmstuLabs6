@@ -97,8 +97,8 @@ _delay_loop_2(uint16_t __count)
  do {
  PORTB &= ~(1<<PB7);//PORTB=0b01000001 (включаем светодиод LED7)
   5a:	c7 98       	cbi	0x18, 7	; 24
-  5c:	88 e8       	ldi	r24, 0x88	; 136
-  5e:	93 e1       	ldi	r25, 0x13	; 19
+  5c:	88 eb       	ldi	r24, 0xB8	; 184
+  5e:	9b e0       	ldi	r25, 0x0B	; 11
   60:	fa 01       	movw	r30, r20
   62:	31 97       	sbiw	r30, 0x01	; 1
   64:	f1 f7       	brne	.-4      	; 0x62 <__SREG__+0x23>
@@ -116,11 +116,11 @@ _delay_loop_2(uint16_t __count)
 		__ticks = (uint16_t) (__ms * 10.0);
 		while(__ticks)
   68:	d9 f7       	brne	.-10     	; 0x60 <__SREG__+0x21>
- _delay_ms(500); // задержка 500 мс
+ _delay_ms(300); // задержка 500 мс
  PORTB |= (1<<PB7); //PORTB=0b11000001 (выключаем светодиод LED7)
   6a:	c7 9a       	sbi	0x18, 7	; 24
-  6c:	88 e8       	ldi	r24, 0x88	; 136
-  6e:	93 e1       	ldi	r25, 0x13	; 19
+  6c:	88 eb       	ldi	r24, 0xB8	; 184
+  6e:	9b e0       	ldi	r25, 0x0B	; 11
   70:	fa 01       	movw	r30, r20
   72:	31 97       	sbiw	r30, 0x01	; 1
   74:	f1 f7       	brne	.-4      	; 0x72 <__SREG__+0x33>
@@ -136,7 +136,7 @@ _delay_loop_2(uint16_t __count)
 		__ticks = (uint16_t) (__ms * 10.0);
 		while(__ticks)
   78:	d9 f7       	brne	.-10     	; 0x70 <__SREG__+0x31>
- _delay_ms(500);
+ _delay_ms(300);
  } while (--timer != 0);
   7a:	21 50       	subi	r18, 0x01	; 1
   7c:	71 f7       	brne	.-36     	; 0x5a <__SREG__+0x1b>
