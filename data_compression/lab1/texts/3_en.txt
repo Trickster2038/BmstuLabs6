@@ -1,0 +1,163 @@
+machinelearningmastery.ru
+Time series forecasting as supervised learning
+www.machinelearningmastery.ru
+11-16 minutes
+
+Publication date 2016-12-05
+
+Time series forecasting can be presented as a controlled learning problem.
+
+This reshaping of your time series data allows you to access a set of standard linear and nonlinear machine learning algorithms for your task.
+
+In this post, you will learn how to reformulate the time series problem as a supervised learning problem for machine learning. After reading this post, you will find out:
+
+What is supervised learning and how is it the basis for all intelligent machine learning algorithms with predictive modeling.
+The sliding window method for generating a time series dataset and how to use it.
+How to use a sliding window for multidimensional data and multistep forecasting.
+
+Let's get started.
+
+Supervised Machine learning
+
+Most of the practical machine learning uses supervised learning.
+
+Supervised learning is when you have input variables (X) and output variable (Y) and you use an algorithm to learn the mapping function from input to output.
+
+Y = f(X)
+
+The goal is to approximate the real underlying mapping so well that when new input data (X) appears, you can predict the output variables (Y) for that data.
+
+Below is a contrived example of a supervised training dataset, where each row is an observation consisting of one input variable (X) and one output variable for prediction (Y).
+
+X, y
+5, 0.9
+4, 0.8
+5, 1.0
+3, 0.7
+4, 0.9
+
+This is called supervised learning, because the process of learning an algorithm from a set of training data can be considered as a teacher controlling the learning process.
+
+We know the correct answers; the algorithm iteratively makes predictions on the training data and is corrected by making updates. Training stops when the algorithm reaches an acceptable level of performance.
+
+Supervised learning problems can be further grouped into regression and classification problems.
+
+Classification: The classification problem is that the output variable is a category, for example: red" and "blue" or "disease" and "no disease".
+regression: A regression problem where the output variable is a real value, such as "dollars" or "weight. The above example is a regression problem.
+
+Sliding window for time series data
+
+Time series data can be formulated as supervised learning.
+
+Given a sequence of numbers for a time series dataset, we can restructure the data to make it look like a supervised learning problem. We can do this by using the previous time steps as input variables and using the next time step as output variables.
+
+Let's do this with an example. Imagine that we have a time series as follows:
+
+time, measure
+1, 100
+2, 110
+3, 108
+4, 115
+5, 120
+
+We can restructure this time series dataset as a supervised learning problem by using the value in the previous time step to predict the value in the next time step. Thus, the reorganization of the time series dataset will look like this:
+
+X, y
+?, 100
+100, 110
+110, 108
+108, 115
+115, 120
+120, ?
+
+Take a look at the transformed dataset above and compare it with the original time series. Here are some observations:
+
+We can see that the previous time step is the input (X) and the next time step is the output (Y) in our supervised learning problem.
+We can see that the order between observations is preserved and should be preserved when using this dataset to train a controlled model.
+We can see that we don't have a previous value that we could use to predict the first value in the sequence. We will delete this line since we cannot use it.
+We can also see that we don't have a known next value that could be predicted for the last value in the sequence. We may want to remove this value during the training of our supervised model.
+
+Using previous time steps to predict the next time step is called the sliding window method. For brevity, this may be called the window method in some literature. In statistics and time series analysis, this is called the lagging or lagging method.
+
+The number of previous time steps is called the window width or the lag size.
+
+This sliding window is the basis of how we can turn any time series dataset into a supervised learning problem. From this simple example, we can notice a few things:
+
+We can see how this can work to turn a time series into a regression or classified supervised learning task for real series values or labeled time series values.
+We can see how after the time series data set is prepared in such a way that any of the standard linear and nonlinear machine learning algorithms can be applied, provided that the order of the rows is preserved.
+We see how you can increase the width of the sliding window to include more of the previous time steps.
+We can see how the sliding window approach can be used for time series having more than one value, or so-called multidimensional time series.
+
+We will look at some of these applications of the sliding window, starting with its use for processing time series with more than one observation at each time step, called a multidimensional time series.
+Sliding window with multidimensional time series data
+
+What matters is the number of observations recorded for a given time in the time series dataset.
+
+Traditionally , different names are used:
+
+A one-dimensional time series is a data set in which only one variable is observed at any given time, for example, temperature every hour. The example in the previous section is a one-dimensional time series dataset.
+Multidimensional time series: These are datasets in which two or more variables are observed simultaneously.
+
+Most time series analysis methods and even books on this topic focus on one-dimensional data. This is because it is the easiest to understand and work with. Multidimensional data is often more difficult to work with. It is more difficult to model, and often many classical methods are ineffective.
+
+The analysis of multidimensional time series takes into account several time series at the same time. ... In general, this is much more complicated than one-dimensional time series analysis
+
+- Page 1, Multidimensional Time Series Analysis: with R and Financial applications,
+
+The best place to use machine learning for time series is where classical methods collapse. This may be with complex one-dimensional time series and is more likely with multidimensional time series, given the additional complexity.
+
+Below is another working example to make the sliding window method specific for multidimensional time series.
+
+Suppose we have an invented multidimensional time series dataset with two observations at each time step. Let's also assume that we are only interested in predicting aasige2,
+
+time, measure1, measure2
+1, 0.2, 88
+2, 0.5, 89
+3, 0.7, 87
+4, 0.4, 88
+5, 1.0, 90
+
+We can reformulate this time series dataset as a supervised learning task with a window width equal to one.
+
+This means that we will use the previous values of the time step of aasige1 and also of aasige2, we will also have the value of the next time step available for aasige1, then we predict the value of the next time step of aasige2,
+
+This will give us 3 input functions and one output value to predict for each training pattern.
+
+X1, X2, X3, y
+?, ?, 0.2 , 88
+0.2, 88, 0.5, 89
+0.5, 89, 0.7, 87
+0.7, 87, 0.4, 88
+0.4, 88, 1.0, 90
+1.0, 90, ?, ?
+
+We can see that, as in the one-dimensional time series example above, we may need to delete the first and last rows in order to train our supervised learning model.
+
+This example raises the question of what if we wanted to predict about aasige1 as well as aasige2 next time?
+
+The sliding window approach can also be used in this case.
+
+Using the same set of time series data as above, we can formulate it as a supervised learning problem where we predict about aasige1 and aasige2 with the same window width as shown below.
+
+X1, X2, y1, y2
+?, ?, 0.2, 88
+0.2, 88, 0.5, 89
+0.5, 89, 0.7, 87
+0.7, 87, 0.4, 88
+0.4, 88, 1.0, 90
+1.0, 90, ?, ?
+
+Not many supervised learning methods can handle predicting multiple output values without modification, but some methods, such as artificial neural networks, have minor problems.
+
+We can think of predicting more than one value as predicting a sequence. In this case, we predicted two different output variables, but we could predict multiple time steps before one output variable.
+
+This is called multi-stage forecasting and is discussed in the next section.
+Sliding window with multi-step forecasting
+
+The number of time steps that should be predicted is important.
+
+Again, traditionally different names are used for the problem depending on the number of time steps for the forecast:
+
+One-step forecast: The next step in time (t + 1) is predicted here.
+Multi-stage forecast: This is where two or more future time steps need to be predicted.
+
