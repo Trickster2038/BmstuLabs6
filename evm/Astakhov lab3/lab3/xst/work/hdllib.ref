@@ -1,0 +1,6 @@
+EN control_unit NULL "C:/Users/user/Desktop/Astakhov lab3/lab3/control_unit.vhd" sub00/vhpl03 1652875144
+AR main behavioral "C:/Users/user/Desktop/Astakhov lab3/lab3/main.vhd" sub00/vhpl05 1652875147
+EN main NULL "C:/Users/user/Desktop/Astakhov lab3/lab3/main.vhd" sub00/vhpl02 1652875146
+EN stab NULL "C:/Users/user/Desktop/Astakhov lab3/lab3/stab.vhd" sub00/vhpl00 1652875142
+AR stab behavioral "C:/Users/user/Desktop/Astakhov lab3/lab3/stab.vhd" sub00/vhpl01 1652875143
+AR control_unit arch_control_unit "C:/Users/user/Desktop/Astakhov lab3/lab3/control_unit.vhd" sub00/vhpl04 1652875145

@@ -1,0 +1,22 @@
+V3 11
+FL "C:/Users/user/Desktop/Astakhov lab3/lab3/control_unit.vhd" 2022/05/18.14:24:39 K.31
+EN work/control_unit 1652875144 \
+      FL "C:/Users/user/Desktop/Astakhov lab3/lab3/control_unit.vhd" \
+      PB ieee/std_logic_1164 1200023565 PB ieee/std_logic_arith 1200023566 \
+      PB ieee/STD_LOGIC_UNSIGNED 1200023567
+AR work/control_unit/arch_control_unit 1652875145 \
+      FL "C:/Users/user/Desktop/Astakhov lab3/lab3/control_unit.vhd" \
+      EN work/control_unit 1652875144
+FL "C:/Users/user/Desktop/Astakhov lab3/lab3/main.vhd" 2022/05/18.14:58:55 K.31
+EN work/main 1652875146 FL "C:/Users/user/Desktop/Astakhov lab3/lab3/main.vhd" \
+      PB ieee/std_logic_1164 1200023565 PB ieee/std_logic_arith 1200023566 \
+      PB ieee/STD_LOGIC_UNSIGNED 1200023567
+AR work/main/Behavioral 1652875147 \
+      FL "C:/Users/user/Desktop/Astakhov lab3/lab3/main.vhd" EN work/main 1652875146 \
+      CP stab CP control_unit
+FL "C:/Users/user/Desktop/Astakhov lab3/lab3/stab.vhd" 2022/05/18.14:18:19 K.31
+EN work/stab 1652875142 FL "C:/Users/user/Desktop/Astakhov lab3/lab3/stab.vhd" \
+      PB ieee/std_logic_1164 1200023565 PB ieee/std_logic_arith 1200023566 \
+      PB ieee/STD_LOGIC_UNSIGNED 1200023567
+AR work/stab/behavioral 1652875143 \
+      FL "C:/Users/user/Desktop/Astakhov lab3/lab3/stab.vhd" EN work/stab 1652875142

@@ -1,0 +1,32 @@
+Release 10.1 - xst K.31 (nt)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to ./xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> 
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/user/Desktop/Astakhov lab3/lab3/stab.vhd" in Library work.
+Architecture behavioral of Entity stab is up to date.
+Compiling vhdl file "C:/Users/user/Desktop/Astakhov lab3/lab3/control_unit.vhd" in Library work.
+Architecture arch_control_unit of Entity control_unit is up to date.
+Compiling vhdl file "C:/Users/user/Desktop/Astakhov lab3/lab3/main.vhd" in Library work.
+Entity <main> compiled.
+Entity <main> (Architecture <Behavioral>) compiled.
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.25 secs
+ 
+--> 
+
+Total memory usage is 202620 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
