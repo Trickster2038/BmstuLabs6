@@ -1,4 +1,6 @@
 pkg load mapping
+pkg load communications
+pkg load image
 
 clear all; % Очистка памяти
 close all; % Закрытие всех окон с графиками
@@ -51,7 +53,7 @@ hsv1(:,:,3)=abs(f)./max(abs(f)); % Яркость
 rgb1=hsv2rgb(hsv1); % Преобразование в формат RGB
 figure; imshow(rgb1); % Визуализация
 
-f1=f
+f1=f;
 % Формирование изображения комплексной функции
 % f(z)=z*exp(z)
 f=z.*exp(z) % Формирование значений
@@ -61,4 +63,40 @@ hsv2(:,:,2)=1; % Насыщенность
 hsv2(:,:,3)=abs(f1)./max(abs(f1)); % Яркость
 rgb2=hsv2rgb(hsv2); % Преобразование в формат RGB
 figure; imshow(rgb2); % Визуализация
+
+% Формирование изображения комплексной функции
+% f(z)=(z^2-i)/(z^2+i)
+%nScale=nScale*.5; % Изменение масштаба
+z=getComplexDomain(nMax,nScale); % Область определения
+f=(z.^2-i)./(z.^3+i); % Формирование значений
+% Формирование изображения HSV
+hsv3(:,:,1)=wrapTo2Pi(angle(f))/(2*pi); % Тон
+hsv3(:,:,2)=1; % Насыщенность
+hsv3(:,:,3)=abs(f)./max(abs(f)); % Яркость
+rgb3=hsv2rgb(hsv3); % Преобразование в формат RGB
+figure; imshow(rgb3); % Визуализация
+
+
+rgbn=imnoise(rgb3, "gaussian", 0, 0.001); 
+figure; imshow(rgbn); % Визуализация
+
+% Объединение массивов изображений
+size(rgb1)
+size(rgb3)
+rgb0=[rgb1 rgb2;rgb3 rgbn];
+figure; imshow(rgb0,'InitialMagnification','fit'); % Визуализация
+% Сохранение в формате JPG
+imwrite(rgb0,'picture.jpg');
+
+display("press any key to start animation")
+pause()
+
+close all
+
+for i=0:0.001:01
+	rgbn=imnoise(rgb3, "gaussian", 0, i); 
+	rgb0=[rgb1 rgb2;rgb3 rgbn];
+	imshow(rgb0,'InitialMagnification','fit'); % Визуализация
+	pause(0.01)
+end
 
